@@ -1,8 +1,8 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 
 // ── GOOGLE SHEETS CONFIG ──────────────────────────────────────────────────────
-const SHEETS_CSV_URL = "YOUR_GOOGLE_SHEETS_CSV_URL_HERE";
-const APPS_SCRIPT_URL = "YOUR_APPS_SCRIPT_URL_HERE";
+const SHEETS_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRjaKzjWnQNHf3pRPaaZA7YTU9WWJYMMzYe1Uzo6XohpKkS7v5ohEtgiQKiWUd9tS4VIQ6eiwQ8AWsV/pub?gid=0&single=true&output=csv";
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycby_RGDcGjG-SR_TyhxiCfAC7IySi3uyg2ig0bmY2cdTCx1Ci_kKMhiyMiqghKsBh9k/exec";
 
 // ── STATIC ACCOUNT DEFINITIONS ───────────────────────────────────────────────
 const ACCOUNTS = {
