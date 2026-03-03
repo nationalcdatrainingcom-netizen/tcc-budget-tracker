@@ -217,10 +217,16 @@ export default function App(){
     return "pending";
   }
 
-  function togglePaid(billId){
-    const key=STATUS_KEY(billId,year,month);
-    setStatuses(s=>({...s,[key]:{...s[key],paid:!s[key]?.paid}}));
-  }
+ async function togglePaid(billId){
+  const key=STATUS_KEY(billId,year,month);
+  const current=statuses[key];
+  const newPaid=!current?.paid;
+  setStatuses(s=>({...s,[key]:{...s[key],paid:newPaid}}));
+  try{
+    const params=new URLSearchParams({key,paid:String(newPaid),note:current?.note||""});
+    await fetch(`${APPS_SCRIPT_URL}?${params.toString()}`,{method:"GET",mode:"no-cors"});
+  }catch(e){}
+}
 
   function discontinueBill(billId){
     setOverrides(o=>({...o,[billId]:{...(o[billId]||{}),discontinued:true}}));
